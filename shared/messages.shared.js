@@ -24,6 +24,14 @@ messagesShared.messageBadRequest = (res, message, data) => {
     });
 };
 
+messagesShared.messageNotAuthUser = (res, message, data) => {
+    return res.status(401).json({
+        data,
+        message,
+        'error': true
+    });
+};
+
 messagesShared.messageErrorSockets = (e, data) => {
     return {
         'data': e,
