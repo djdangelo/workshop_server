@@ -21,10 +21,13 @@ app.use('/*', async (req, res) => {
 });
 
 module.exports.io = require('socket.io')(server,{
-    cors: {
+    cors: [{
         origin: "http://localhost:4200",
             methods: ["GET", "POST"]
-    }
+    },{
+        origin: "https://app-workshop-admin.herokuapp.com",
+        methods: ["GET", "POST"]
+    }]
 });
 require('./sockets/socket');
 
